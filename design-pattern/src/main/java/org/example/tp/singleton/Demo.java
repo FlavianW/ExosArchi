@@ -1,6 +1,4 @@
-package org.example.tp.singleton;
-
-import org.example.tp.singleton.Configuration;
+package org.example.creational.tp.singleton;
 
 public class Demo {
     public static void main(String[] args) {

@@ -1,5 +1,7 @@
 package org.example.creational.singleton;
 
+
+
 public class Demo {
 
     public static void main(String[] args) {

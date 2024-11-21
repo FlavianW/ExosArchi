@@ -1,29 +1,14 @@
 package org.example.tp.factory;
 
-public class Mage implements CharacterInterface {
-    int pv;
-    int pa;
-    String competence;
-
-    public Mage(int pv, int pa, String competence) {
-        this.pv = pv;
-        this.pa = pa;
-        this.competence = competence;
-    }
-
-
-    @Override
-    public int getHealth() {
-        return this.pv;
+public class Mage extends Character {
+    public Mage() {
+        this.name = "Mage";
+        this.health = 100;
+        this.attack = 30;
     }
 
     @Override
-    public int getAttack() {
-        return this.pa;
-    }
-
-    @Override
-    public String getCompetence() {
-        return this.competence;
+    public void useSpecialSkill() {
+        System.out.println("Mage casts Fireball!");
     }
 }

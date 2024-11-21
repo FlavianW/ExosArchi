@@ -1,28 +1,16 @@
-package org.example.tp.factory;
+package org.example.creational.tp.factory;
 
-public class Archer implements CharacterInterface {
-    int pv;
-    int pa;
-    String competence;
+import org.example.creational.tp.factory.Character;
 
-    public Archer(int pv, int pa, String competence) {
-        this.pv = pv;
-        this.pa = pa;
-        this.competence = competence;
+public class Archer extends Character {
+    public Archer() {
+        this.name = "Archer";
+        this.health = 120;
+        this.attack = 25;
     }
 
     @Override
-    public int getHealth() {
-        return this.pv;
-    }
-
-    @Override
-    public int getAttack() {
-        return this.pa;
-    }
-
-    @Override
-    public String getCompetence() {
-        return this.competence;
+    public void useSpecialSkill() {
+        System.out.println("Archer shoots a powerful arrow!");
     }
 }

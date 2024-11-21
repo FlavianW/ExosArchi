@@ -1,28 +1,14 @@
 package org.example.tp.factory;
 
-public class Warrior implements CharacterInterface {
-    int pv;
-    int pa;
-    String competence;
-
-    public Warrior(int pv, int pa, String competence) {
-        this.pv = pv;
-        this.pa = pa;
-        this.competence = competence;
+public class Warrior extends Character {
+    public Warrior() {
+        this.name = "Warrior";
+        this.health = 150;
+        this.attack = 20;
     }
 
     @Override
-    public int getHealth() {
-        return this.pv;
-    }
-
-    @Override
-    public int getAttack() {
-        return this.pa;
-    }
-
-    @Override
-    public String getCompetence() {
-        return this.competence;
+    public void useSpecialSkill() {
+        System.out.println("Warrior uses Shield Bash!");
     }
 }
