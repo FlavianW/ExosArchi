@@ -1,39 +1,38 @@
 package org.example.tp.singleton;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Properties;
 
 public class Configuration {
-
-    Map<String, String> settings;
-
     private static Configuration instance;
+    private Map<String, String> settings;
+
 
     private Configuration() {
-        this.settings = new HashMap<>();
-        this.settings.put("bdd","abcd");
-        this.settings.put("env","abcd");
-        this.settings.put("api","1234");
+        settings = new HashMap<>();
+        loadDefaultSettings();
     }
 
-    private String getSetting(String key){
-        return this.settings.get(key);
-    }
-
-    private void setSettings(String key, String value){
-        this.settings.put(key,value);
-    }
-
-    public static Configuration getInstance(){
+    public static synchronized Configuration getInstance() {
         if (instance == null) {
             instance = new Configuration();
         }
         return instance;
     }
+
+    private void loadDefaultSettings() {
+        settings.put("db_url", "jdbc:mysql://localhost:3306/mydb");
+        settings.put("api_key", "defaultApiKey");
+        settings.put("environment", "development");
+    }
+
+
+    public String getSetting(String key) {
+        return settings.get(key);
+    }
+
+
+    public void setSetting(String key, String value) {
+        settings.put(key, value);
+    }
 }
-
-
